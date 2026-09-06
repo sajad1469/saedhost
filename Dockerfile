@@ -12,12 +12,12 @@ RUN apk add --no-cache \
     && ln -sf /usr/share/zoneinfo/Asia/Tehran /etc/localtime
 
 # دانلود و نصب 3x-ui
-RUN curl -L https://github.com/mhsanaei/3x-ui/releases/download/v3.6.0/x-ui-linux-amd64.tar.gz -o /tmp/x-ui.tar.gz \
-    && tar -xzf /tmp/x-ui.tar.gz -C /usr/local/ \
+RUN curl -L https://github.com/rebeccapanel/Rebecca/releases/tag/v1.2.0/rebecca-linux-amd64.tar.gz -o /tmp/rebecca.tar.gz \
+    && tar -xzf /tmp/rebecca.tar.gz -C /usr/local/ \
     && rm /tmp/x-ui.tar.gz \
-    && chmod +x /usr/local/x-ui/x-ui
+    && chmod +x /usr/local/rebecca/rebecca
 
-RUN mkdir -p /etc/x-ui /var/log/x-ui
+RUN mkdir -p /etc/rebecca /var/log/rebecca
 
 COPY nginx.conf.template /etc/nginx/nginx.conf.template
 COPY start.sh /start.sh
